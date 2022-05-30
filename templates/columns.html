@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/style.css">
+
+        <style type="text/css">
+            .search {
+                text-align: center;
+                padding-top: 10px 0;
+            }
+
+            body {
+                background: orange;
+                background-size: 400% 400%;
+                animation: gradient 20s ease infinite;
+                height: 100vh;
+            }
+
+            @keyframes gradient {
+                100% {
+                    background-position: 100% 100%;
+                }
+                100% {
+                    background-position: 100% 100%;
+                }
+                100% {
+                    background-position: 100% 100%;
+                }
+            }
+
+            form {
+                font-size: large;
+                font-size: 40px;
+                text-align: center;
+                display: inline;
+            }
+
+            input {
+                width: 300px;
+                height: 80px;
+                font-size: xx-large;
+                margin: auto;
+                position: relative;
+                text-align: center;
+            }
+
+            h1 {
+               padding-top: 10px;
+               text-align: center;
+               font-size: 70px;
+               color: green;
+               font-family: Georgia, serif;
+               font-style: italic;
+            }
+
+            h2 {
+                text-align: center;
+                font-size: 40px;
+                color: green;
+                font-family: Georgia, serif;
+            }
+
+            h3 {
+                text-align: left;
+                font-size: 40px;
+                color: green;
+                font-family: Georgia, serif;
+            }
+
+            select, option {
+                width: 300px;
+                height: 80px;
+                font-size: xx-large;
+                margin: auto;
+                position: relative;
+                text-align: center;
+            }
+
+            #reset, .navigate {
+                background-color: green;
+            }
+
+            .bottomCenter {
+                text-align: center;
+                position: relative;
+                bottom: 0px;
+                align: center;
+            }
+
+            table, th, td {
+              border: 5px solid;
+              border-collapse: collapse;
+            }
+
+            .center {
+                margin-left: auto;
+                margin-right: auto;
+                color: green;
+            }
+        </style>
+
+        <title>Columns</title>
+    </head>
+
+    <body>
+        <h3>
+            Table: Select name of table <br><br>
+            Column: Select name of table in column <br><br>
+            Reset to start over
+        </h3>
+
+        <div class="search">
+            <form id="myTable", action="{{ url_for('show_from_table') }}" method="POST">
+                <select id="selectNow" name="table" onchange="this.form.submit()">
+                    {% if chosen_table == "": %}
+                        <option value="none" selected disabled hidden>Select Table</option>
+                    {% else %}
+                        <option value="none" selected disabled hidden>{{chosen_table}}</option>
+                    {% endif %}
+
+                    {% for name in table_names: %}
+                        <option>
+                            {{ name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </form>
+
+            <form id="myTabl" action="{{ url_for('show_column') }}" method="POST">
+                <select id="selectNo" name="column" onchange="this.form.submit()">
+                    {% if chosen_column == "": %}
+                        <option value="none" selected disabled hidden>Select Column</option>
+                    {% else %}
+                        <option value="none" selected disabled hidden>{{chosen_column}}</option>
+                    {% endif %}
+
+                    {% if chosen_table != "": %}
+                        <option>ALL (*)</option>
+
+                        {% for name in column_names: %}
+                            <option>
+                                {{ name }}
+                            </option>
+                        {% endfor %}
+                    {% endif %}
+                </select>
+            </form>
+
+            <form name="reset" method="post" action="{{ url_for('columns') }}">
+                <input class="navigate" type="submit" value="Reset"/>
+            </form>
+        </div>
+        <br><br>
+
+        <div>
+            {% if chosen_table != "" and chosen_column != "" %}
+                <table class="center">
+                    <tr>
+                        {% if chosen_column == "ALL (*)" %}
+                            {% for col_name in column_names: %}
+                                <th>{{ col_name }}</th>
+                            {% endfor %}
+                        {% else %}
+                            <th>{{chosen_column}}</th>
+                        {% endif %}
+                    </tr>
+
+                    {% for row_num in row_nums: %}
+                        <tr>
+                            {% for val in table_display[row_num]: %}
+                                <td>{{ val }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
+        </div>
+        <br><br>
+
+        <div class="bottomCenter">
+            <form name="logout" method="post" action="{{ url_for('authenticate') }}">
+                <input class="navigate" type="submit" value="Logout"/>
+            </form>
+
+            <form name="delete" method="post" action="{{ url_for('delete') }}">
+                <input class="navigate" type="submit" value="Delete"/>
+            </form>
+        </div>
+    </body>
+</html>

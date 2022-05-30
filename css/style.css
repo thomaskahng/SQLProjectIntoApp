@@ -1,0 +1,57 @@
+.center {
+    text-align: center;
+    padding-top: 10px 0;
+}
+body {
+    background: orange;
+    background-size: 400% 400%;
+    animation: gradient 20s ease infinite;
+    height: 100vh;
+}
+
+@keyframes gradient {
+    100% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+form {
+    font-size: large;
+}
+
+input{
+    width: 300px;
+    height: 80px;
+    font-size: xx-large;
+    margin: auto;
+    position: relative;
+    text-align: center;
+}
+h1 {
+   padding-top: 10px;
+   text-align: center;
+   font-size: 70px;
+   color: green;
+   font-family: Georgia, serif;
+   font-style: italic;
+}
+
+h2 {
+    text-align: center;
+    font-size: 40px;
+    color: green;
+    font-family: Georgia, serif;
+}
+
+h3 {
+    text-align: left;
+    font-size: 40px;
+    color: green;
+    font-family: Georgia, serif;
+}
