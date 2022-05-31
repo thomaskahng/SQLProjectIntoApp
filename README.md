@@ -6,7 +6,7 @@ Open [MySQL](https://www.mysql.com/products/workbench/) Workbench
 
 Click the Connection
 
-[Screenshot 2022-05-30 210524](https://user-images.githubusercontent.com/76675748/171078563-31c50230-b1ef-4571-9fab-0ce3ab69809a.png)
+![Screenshot 2022-05-30 210524](https://user-images.githubusercontent.com/76675748/171078563-31c50230-b1ef-4571-9fab-0ce3ab69809a.png)
 
 Click the plain lightning bolt to execute database at original state before modifications
 
