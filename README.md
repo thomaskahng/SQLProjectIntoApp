@@ -4,9 +4,15 @@ Open [WAMP](https://sourceforge.net/projects/wampserver/) if Windows or [MAMP](h
 
 Open [MySQL](https://www.mysql.com/products/workbench/) Workbench
 
+Click the Connection
 
+[Screenshot 2022-05-30 210524](https://user-images.githubusercontent.com/76675748/171078563-31c50230-b1ef-4571-9fab-0ce3ab69809a.png)
 
-# Home Page
+Click the plain lightning bolt to execute database at original state before modifications
+
+![Screenshot 2022-05-30 210602](https://user-images.githubusercontent.com/76675748/171078687-d57dad72-8d00-4a79-9369-f900aaa55c6f.png)
+
+# Home Page!
 
 Login:
 
