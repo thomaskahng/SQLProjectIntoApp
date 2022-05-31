@@ -1,3 +1,11 @@
+# Pre Execution Steps
+
+Open [WAMP](https://sourceforge.net/projects/wampserver/) if Windows or [MAMP](https://www.mamp.info/en/mac/) if Mac
+
+Open [MySQL](https://www.mysql.com/products/workbench/) Workbench
+
+
+
 # Home Page
 
 Login:
